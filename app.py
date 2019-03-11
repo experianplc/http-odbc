@@ -5,20 +5,12 @@ import json
 import os
 
 # Credentials should be pulled from environment variables
-username = os.environ["HTTP_ODBC_USERNAME"]
-password = os.environ["HTTP_ODBC_PASSWORD"]
-dsn_name = os.environ["HTTP_ODBC_DSN_NAME"]
+connection_string = os.environ["HTTP_ODBC_CONNECTION_STRING"]
 
-if not username:
-    raise "HTTP_ODBC_USERNAME missing"
+if not connection_string:
+    raise "HTTP_ODBC_CONNECTION_STRING is missing"
 
-if not password:
-    raise "HTTP_ODBC_PASSWORD missing"
-
-if not dsn_name:
-    raise "HTTP_ODBC_DSN_NAME missing"
-
-client = pyodbc.connect(f"DSN={dsn_name};UID={username};PWD={password}")
+client = pyodbc.connect(f"{connection_string}")
 cursor = client.cursor()
 
 app = Flask(__name__)
@@ -57,6 +49,3 @@ def query():
     json_list.append(json_row)
     
   return Response(json.dumps(json_list), mimetype="application/json")
-
-if __name__ == "__main__":
-    app.run(debug=True, host="0.0.0.0")
