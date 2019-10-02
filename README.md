@@ -23,3 +23,4 @@ Find more information about the connection string to use  [here](https://github.
 ## Usage
 
 Once environment variables are set, to use it you can run `server.py`. 
+Alternatively, you can set the configuration in the included `server-pandora.bat` and `server-aperture.bat` files for Windows and execute the script as necessary for Pandora or Data Studio respectively. 
