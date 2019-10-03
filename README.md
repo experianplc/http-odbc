@@ -21,6 +21,8 @@ Before using HTTP-ODBC be sure to set the necessary environment variables:
 Find more information about the connection string to use  [here](https://github.com/mkleehammer/pyodbc/wiki/Connecting-to-databases).
 
 ## Usage
+1. [Download](https://github.com/experianplc/http-odbc/releases/latest) the latest release.
+2. Set the envrionment variables as specified in `Configuration`.
+3. Run the server.exe
 
-Once environment variables are set, to use it you can run `server.py`. 
-Alternatively, you can set the configuration in the included `server-pandora.bat` and `server-aperture.bat` files for Windows and execute the script as necessary for Pandora or Data Studio respectively. 
+>>> Alternatively, you can set the configuration in the included `server-pandora.bat` and `server-aperture.bat` files for Windows and execute the script as necessary for Pandora or Data Studio respectively. 
