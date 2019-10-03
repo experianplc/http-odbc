@@ -25,4 +25,4 @@ Find more information about the connection string to use  [here](https://github.
 2. Set the envrionment variables as specified in `Configuration`.
 3. Run the server.exe
 
->>> Alternatively, you can set the configuration in the included `server-pandora.bat` and `server-aperture.bat` files for Windows and execute the script as necessary for Pandora or Data Studio respectively. 
+> Alternatively, you can set the configuration in the included `server-pandora.bat` and `server-aperture.bat` files for Windows and execute the script as necessary for Pandora or Data Studio respectively. 
