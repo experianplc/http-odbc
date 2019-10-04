@@ -27,6 +27,16 @@ Find more information about the connection string to use  [here](https://github.
 
 > Alternatively, you can set the configuration in the included `server-pandora.bat` and `server-aperture.bat` files for Windows and execute the script as necessary for Pandora or Data Studio respectively. 
 
+Once the server is running you will send a POST request to the URL in the following format
+
+```http
+{
+  "sql": $QUERY
+}
+```
+
+Where $QUERY is a properly escaped SQL query, e.g. `"SELECT * FROM \"PROFILES\""`. 
+
 ## Frequently asked questions
 > Does this work for Linux?
 
