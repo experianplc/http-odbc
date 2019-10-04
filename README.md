@@ -26,3 +26,8 @@ Find more information about the connection string to use  [here](https://github.
 3. Run the server.exe
 
 > Alternatively, you can set the configuration in the included `server-pandora.bat` and `server-aperture.bat` files for Windows and execute the script as necessary for Pandora or Data Studio respectively. 
+
+## Frequently asked questions
+> Does this work for Linux?
+
+At the moment, our binary is only compiled for Windows. However, you can clone this project and set the environment variables as mentioned in the Configuration section and run `server.py` to use this on Linux machines that have Python installed. 
