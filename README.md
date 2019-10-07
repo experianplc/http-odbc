@@ -16,9 +16,19 @@ Before using HTTP-ODBC be sure to set the necessary environment variables:
 | Environment Variable | Description | Default |
 | -------------------- | ----------- | ------- |
 | HTTP_ODBC_CONNECTION_STRING | Connection string to be used to connect via ODBC | None |
-| HTTP_ODBC_PORT | Port to be used when server starts | 8005 |
+| HTTP_ODBC_PORT | Port to be used when server starts | 8005 | 
 
 Find more information about the connection string to use  [here](https://github.com/mkleehammer/pyodbc/wiki/Connecting-to-databases).
+Please note tha the `HTTP_ODBC_PORT` is not the port in which your application is exposing itself. This will be the port in which the server itself listens. 
+
+So for example, if you're running Experian Pandora or Experian Data Studio and its ODBC port listens at `7800`, you will *not* want to configure the `HTTP_ODBC_PORT` to also listen `7800`. Instead, you might want to make the port an available open port, for example `8000`. 
+
+In addition, `HTTP-ODBC` must be running on the same machine that exposes the ODBC DSN name. So if you have a machine called `machine-1` that has the DSN name `PServer 64bit` listed under its ODBC Connections then `HTTP-ODBC` must be running on `machine-1` in order to access the DSN name `PServer 64bit` if that's the DSN you're trying to use. 
+
+### Additions for Experian Pandora and Experian Data Studio
+Be sure that the service Pandora and/or Data Studio is turned on before attempting to run `HTTP-ODBC`. If Pandora and/or Data Studio are not on and you run `HTTP-ODBC` it will attempt to connect to an ODBC connection that is not listening and fail with an error.
+
+This is generally the same practice you would use for any application. 
 
 ## Usage
 1. [Download](https://github.com/experianplc/http-odbc/releases/latest) the latest release.
@@ -39,13 +49,13 @@ Once the server is running you will send a POST request to the URL in the follow
 Where $QUERY is a properly escaped SQL query, e.g. `"SELECT * FROM \"PROFILES\""`. 
 
 ## Frequently asked questions
-> Does this work for Linux?
+#### Does this work for Linux?
 
 At the moment, our binary is only compiled for Windows. However, you can clone this project and set the environment variables as mentioned in the Configuration section and run `server.py` to use this on Linux machines that have Python installed. 
 
 ## Troubleshooting
 
-### The server will not start, what do I do?
+#### The server will not start, what do I do?
 If the server does not start you're most likely getting this particular error (on Windows).
 ![image](https://user-images.githubusercontent.com/5572859/66215825-54925280-e692-11e9-8313-cccec28c3607.png)
 
@@ -59,7 +69,7 @@ You would set `HTTP_ODBC_CONNECTION_STRING` to `DSN=PServer 64bit;UID=administra
 
 You can see that the PServer 64bit is reflected here. The UID and PWD will depend on the drivers configuration itself. If you're ensure please contact your system administrator. 
 
-### The server starts but I'm not getting a response.
+#### The server starts but I'm not getting a response.
 If you're not getting a response it means the query itself you're attempting to use is invalid. 
 
 ![image](https://user-images.githubusercontent.com/5572859/66216219-13e70900-e693-11e9-8dd1-c4acee8e9d85.png)
