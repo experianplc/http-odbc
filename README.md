@@ -31,7 +31,7 @@ Be sure that the service Pandora and/or Data Studio is turned on before attempti
 This is generally the same practice you would use for any application. 
 
 ## Usage
-1. [Download](https://github.com/experianplc/http-odbc/releases/latest) the latest release.
+1. [Download](https://github.com/experianplc/http-odbc/releases/latest) the latest release - be sure to download `server-windows.zip`.
 2. Make sure your User DSN is set (for Windows machines). See the Troubleshooting section below for details.
 2. Set the envrionment variables as specified in `Configuration`.
 3. Run the server.exe
