@@ -97,3 +97,8 @@ If you're not getting a response it means the query itself you're attempting to 
 ![image](https://user-images.githubusercontent.com/5572859/66216219-13e70900-e693-11e9-8dd1-c4acee8e9d85.png)
 
 With Pandora and Data Studio in particular, make sure that table you're querying exists. 
+
+#### I'm getting a miscellaneous error
+
+Make sure that [Microsoft Visual C++ 2010](https://www.microsoft.com/en-hk/download/details.aspx?id=13523) and [2012](https://www.microsoft.com/en-us/download/details.aspx?id=30679) are both installed. 
+
