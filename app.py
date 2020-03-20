@@ -10,9 +10,6 @@ connection_string = os.environ["HTTP_ODBC_CONNECTION_STRING"]
 if not connection_string:
     raise "HTTP_ODBC_CONNECTION_STRING is missing"
 
-client = pyodbc.connect(f"{connection_string}")
-cursor = client.cursor()
-
 app = Flask(__name__)
 
 @app.route("/query", methods=["GET", "POST"])
@@ -32,6 +29,8 @@ def query():
   # aware of this. HTTPS and TLS can mitigate man-in-the-middle (MITM) 
   # attacks and modification of the request in flight.
 
+  client = pyodbc.connect(f"{connection_string}")
+  cursor = client.cursor()
   query = request.get_json()["sql"]
   json_list = []
 
