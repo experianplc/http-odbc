@@ -4,6 +4,6 @@ itsdangerous==1.1.0
 Jinja2>=2.10.1
 MarkupSafe==1.1.1
 pyodbc==4.0.30
-Werkzeug==1.0.0
+Werkzeug==0.16.1
 waitress==1.4.3
 pyinstaller==3.6
